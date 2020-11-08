@@ -1,0 +1,69 @@
+<html lang="en">
+  <head>
+    <title>CSS GRID</title>
+    <style>
+      .wrapper > div:nth-child(odd) {
+        background-color: #ddd;
+      }
+      .wrapper > div {
+        background: #eee;
+        padding: 1em;
+      }
+      .wrapper {
+        display: grid;
+        /* grid-template-columns: 1fr 1fr 1fr; */
+        /* grid-template-columns: repeat(3, 1fr 2fr); */
+        grid-template-columns: repeat(
+          3,
+          1fr
+        ); /* it will repeat 3 grids with fraction 1 */
+        grid-gap: 1em; /* grid-width-gap and grid-column-gap will create gap(as from the name itself) between grids
+        grid-gap will do the same
+        */
+        grid-auto-rows: minmax(
+          100px,
+          auto
+        ); /* grid-auto-rows will set the size of blocks in a row.
+        minmax(100px, auto) - if size somehow exceeds from 100px, then it will auto manage the blocks in a row
+        */
+      }
+      .nested {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(50px, auto);
+        grid-gap: 1em;
+      }
+      .nested > div {
+        border: 1px rgb(0, 0, 0) solid;
+        padding: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>Lorem ipsum dolor sit.</div>
+      <div>
+        Lorem ipsum dolor sit. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Beatae aut quasi eaque voluptatibus illum libero!
+        Adipisci modi rerum quis numquam mollitia ut? Dolorum perferendis iure
+        atque, dicta iusto consequuntur enim! Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. Eum esse mollitia alias eos aspernatur cum
+        porro voluptatum facilis, perferendis magni quia quas amet asperiores
+        corporis hic totam. Officia, tenetur illum?
+      </div>
+      <div class="nested">
+        <div>Lorem, ipsum.</div>
+        <div>Lorem, ipsum.</div>
+        <div>Lorem, ipsum.</div>
+        <div>Lorem, ipsum.</div>
+        <div>Lorem, ipsum.</div>
+        <div>Lorem, ipsum.</div>
+        <div>Lorem, ipsum.</div>
+        <div>Lorem, ipsum.</div>
+      </div>
+      <div>Lorem ipsum dolor sit.</div>
+      <div>Lorem ipsum dolor sit.</div>
+      <div>Lorem ipsum dolor sit.</div>
+    </div>
+  </body>
+</html>

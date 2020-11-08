@@ -1,0 +1,99 @@
+.container {
+  /* flex-direction: row|column|row-reverse|column-reverse|inherit;  */
+  align-items: stretch; /* flex-start| flex-end | center - (adjust according to text inside) ~~ strech(by Default) | inherit(inherit from boxes around) | baseline(set at top baseline) */
+  display: flex; /* Items will become flexible, according to screen wdith */
+} /* If we use 'inline', it will make the boxes in-line(one line for each) as cleared from name.
+If 'inline-block' is used, boxes will be in inline but in form of blocks(small blocks)
+if 'block' is used, it will make block without being inline
+
+
+*/
+.container div,
+.container-2 div,
+.container-3 div {
+  border: 1px #ccc solid;
+  padding: 10px;
+}
+.box-1 {
+  align-self: flex-start; /* allign-self or justify-self will override the container properties of align-items and justify-content */
+
+  flex: 1; /* More the flex number, more it will take the space on screen as compared to other boxes
+    if all 'flex':1, they have 1 ratio of each
+    */
+}
+.box-2 {
+  flex: 0.5;
+  /* 'order: 3' property will change the order of boxes on screen.*/
+}
+.box-3 {
+  flex: 1;
+}
+.container-2 {
+  display: flex;
+
+  justify-content: space-between; /* space-between | space-around | space-evenly | center | flex-start | flex-end */
+}
+.container-2-box {
+  justify-self: flex-start;
+  /*width: 30%; flex-basis: 30%; will do the same */
+  flex-basis: 30%;
+}
+.container-3 {
+  display: flex;
+  flex-wrap: wrap; /* It will wrap the flex-content and will change it's flexness according to screen-resolution */
+  justify-content: space-evenly;
+}
+.container-3-box {
+  flex-basis: 25%;
+}
+/* The flex-grow property specifies how much the item will grow relative to the rest of the flexible items inside the same container.
+
+Note: If the element is not a flexible item, the flex-grow property has no effect.
+
+*/
+#main {
+  width: 350px;
+  height: 100px;
+  border: 1px solid #c3c3c3;
+  display: flex;
+}
+
+#main div:nth-of-type(1) {
+  flex-grow: 3;
+}
+#main div:nth-of-type(2) {
+  flex-grow: 2;
+}
+
+#main div:nth-of-type(3) {
+  flex-grow: 10;
+}
+
+#main div:nth-of-type(4) {
+  flex-grow: 1;
+}
+
+#main div:nth-of-type(5) {
+  flex-grow: 1;
+}
+
+/*The flex-shrink property specifies how the item will shrink relative to the rest of the flexible items inside the same container.
+
+Note: If the element is not a flexible item, the flex-shrink property has no effect.
+
+*/
+
+#flex-shrink {
+  width: 350px;
+  height: 100px;
+  border: 1px solid #c3c3c3;
+  display: flex;
+}
+#flex-shrink div {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 100px;
+}
+#flex-shrink div:nth-of-type(3) {
+  flex-shrink: 5;
+}
